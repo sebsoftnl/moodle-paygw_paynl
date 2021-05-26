@@ -1,0 +1,117 @@
+[
+    {
+        "name": "paynl/sdk",
+        "version": "v1.5.17",
+        "version_normalized": "1.5.17.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paynl/sdk.git",
+            "reference": "bf5270d2d831cecd6b4a233c47f0547760769295"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paynl/sdk/zipball/bf5270d2d831cecd6b4a233c47f0547760769295",
+            "reference": "bf5270d2d831cecd6b4a233c47f0547760769295",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "php-curl-class/php-curl-class": "^8.3"
+        },
+        "require-dev": {
+            "php-coveralls/php-coveralls": "^1.0",
+            "phpunit/phpunit": "^4.8"
+        },
+        "suggest": {
+            "ext-simplexml": "*"
+        },
+        "time": "2020-09-13T21:31:52+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Paynl\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Andy Pieters",
+                "email": "andy@pay.nl"
+            }
+        ]
+    },
+    {
+        "name": "php-curl-class/php-curl-class",
+        "version": "8.9.0",
+        "version_normalized": "8.9.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-curl-class/php-curl-class.git",
+            "reference": "a40cc77eb45bc6489240415197734ca747ce4820"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-curl-class/php-curl-class/zipball/a40cc77eb45bc6489240415197734ca747ce4820",
+            "reference": "a40cc77eb45bc6489240415197734ca747ce4820",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "ext-gd": "*",
+            "phpunit/phpunit": "*",
+            "squizlabs/php_codesniffer": "*"
+        },
+        "suggest": {
+            "ext-mbstring": "*"
+        },
+        "time": "2020-11-01T03:47:32+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Curl\\": "src/Curl/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Unlicense"
+        ],
+        "authors": [
+            {
+                "name": "Zach Borboa"
+            }
+        ],
+        "description": "PHP Curl Class makes it easy to send HTTP requests and integrate with web APIs.",
+        "homepage": "https://github.com/php-curl-class/php-curl-class",
+        "keywords": [
+            "API-Client",
+            "api",
+            "class",
+            "client",
+            "curl",
+            "framework",
+            "http",
+            "http-client",
+            "http-proxy",
+            "json",
+            "php",
+            "php-curl",
+            "php-curl-library",
+            "proxy",
+            "requests",
+            "restful",
+            "web-scraper",
+            "web-scraping ",
+            "web-service",
+            "xml"
+        ]
+    }
+]

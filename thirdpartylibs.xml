@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<libraries>
+    <library>
+        <location>thirdparty/paynl-sdk</location>
+        <name>PayNL PHP SDK</name>
+        <version>1.5.17</version>
+        <license>MIT License</license>
+        <licenseversion>1</licenseversion>
+    </library>
+</libraries>
