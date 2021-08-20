@@ -10,7 +10,7 @@
     padding: 1em;
     width: 100%;
     border-radius: 10px;
-    border: 0px none;
+    border: none;
 }
 .paygw_paynl-payment-methods .paymentmethod input[type="radio"]:checked + label {
     background-color: #ddd;
