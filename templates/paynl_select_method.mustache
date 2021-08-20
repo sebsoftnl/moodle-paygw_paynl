@@ -24,10 +24,23 @@
     * none
 
     Context variables required for this template:
-    * none
+    * methods
+    * imagebase
 
     Example context (json):
-    {}
+    {
+        "imagebase": "/relpath/to/images/",
+        "methods": [
+            {
+                "id": 1,
+                "hasbanks": true,
+                "brand": {
+                    "image": "path/to/image",
+                    "publoc_description": "description",
+                }
+            }
+        ]
+    }
 
 }}
 <div class="paynl-redirect-notification alert alert-info"><span>{{#str}}redirect-notify, paygw_paynl{{/str}}</span></div>
