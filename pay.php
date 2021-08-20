@@ -29,8 +29,8 @@ require_once(__DIR__ . '/../../../config.php');
 require_once(__DIR__ . '/thirdparty/paynl-sdk/autoload.php');
 
 require_login();
-$component = required_param('component', PARAM_ALPHANUMEXT);
-$paymentarea = required_param('paymentarea', PARAM_ALPHANUMEXT);
+$component = required_param('component', PARAM_COMPONENT);
+$paymentarea = required_param('paymentarea', PARAM_AREA);
 $itemid = required_param('itemid', PARAM_INT);
 $description = required_param('description', PARAM_TEXT);
 
@@ -52,30 +52,24 @@ $config = (object) helper::get_gateway_configuration($component, $paymentarea, $
 $payable = helper::get_payable($component, $paymentarea, $itemid);
 $surcharge = helper::get_gateway_surcharge('paynl');
 
-$cost = helper::get_rounded_cost($payable->get_amount(), $payable->get_currency(), $surcharge);
-$coststr = helper::get_cost_as_string($payable->get_amount(), $payable->get_currency(), $surcharge);
-
 $paynlhelper = new paynl_helper($config->apitoken, $config->tokencode, $config->serviceid);
 $imagebase = paynl_helper::get_image_base();
 
 $PAGE->requires->js_call_amd('paygw_paynl/startpayment', 'startPayment', ['[data-action="paynl-startpayment"]']);
 
 echo $OUTPUT->header();
-echo $OUTPUT->heading(get_string('selectpaymentmethod', 'paygw_paynl'), 4);
+echo $OUTPUT->heading(get_string('selectpaymentmethod', 'paygw_paynl'), 2);
 echo '<div>' . get_string('selectpaymentmethod_help', 'paygw_paynl') . '</div>';
 
 $paymentmethods = $paynlhelper->get_payment_methods();
-$wcontext = (object)[
-    'imagebase' => $imagebase,
-    'methods' => array_values($paymentmethods)
-];
-echo $OUTPUT->render_from_template('paygw_paynl/paynl_select_method', $wcontext);
-
-echo '<div style="text-align: center;"><button class="btn btn-primary" data-action="paynl-startpayment"'
-    . ' data-component="'.$component.'"'
-    . ' data-paymentarea="'.$paymentarea.'"'
-    . ' data-itemid="'.$itemid.'"'
-    . ' data-description="'.$description.'"'
-    . '>'.get_string('startpayment', 'paygw_paynl').'</button></div>';
-
+if (count($paymentmethods) === 0) {
+    echo \html_writer::div(get_string('err:nopaymentmethods', 'paygw_paynl'), 'alert alert-warning');
+} else {
+    $wcontext = (object)[
+        'imagebase' => $imagebase,
+        'methods' => array_values($paymentmethods)
+    ];
+    echo $OUTPUT->render_from_template('paygw_paynl/paynl_select_method', $wcontext);
+    echo $OUTPUT->render_from_template('paygw_mollie/paynl_startpayment', (object)$params);
+}
 echo $OUTPUT->footer();

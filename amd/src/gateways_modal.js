@@ -16,7 +16,7 @@
 /**
  * This module is responsible for PayNL content in the gateways modal.
  *
- * @module     paygw_paynl/gateway_modal
+ * @module     paygw_paynl/gateways_modal
  * @copyright  2021 Ing. R.J. van Dongen <rogier@sebsoft.nl>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,7 +27,7 @@ import ModalFactory from 'core/modal_factory';
 /**
  * Show modal with the PayNL placeholder.
  *
- * @returns {void}
+ * @returns {Promise}
  */
 const showModalWithPlaceholder = async() => {
     const modal = await ModalFactory.create({

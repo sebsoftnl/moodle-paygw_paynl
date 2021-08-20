@@ -22,9 +22,9 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-import $ from 'jquery';
 import * as Repository from 'paygw_paynl/repository';
 import Notification from 'core/notification';
+import get_string from 'core/str';
 
 /**
  * Detect selected payment method (if we have one).
@@ -46,23 +46,27 @@ function getSelectedPaymentMethod() {
  * @returns {void}
  */
 export const startPayment = (selector) => {
-    const doCreateTransaction = function(e) {
+    document.querySelector(selector).addEventListener('click', e => {
         e.preventDefault();
-        let invokeElement = $(e.currentTarget);
+        const dataset = e.currentTarget.dataset;
+
         Repository.createPayment(
-                invokeElement.data('component'),
-                invokeElement.data('paymentarea'),
-                invokeElement.data('itemid'),
-                invokeElement.data('description'),
+                dataset.component,
+                dataset.paymentarea,
+                dataset.itemid,
+                dataset.description,
                 getSelectedPaymentMethod(),
                 null,
-        ).then(function(result) {
+        ).then(result => {
             if (result.success) {
                 window.location.href = result.redirecturl;
             } else {
-                // hmmmm.
+                Notification.alert(
+                    get_string('startpayment:failed:title', 'paygw_paynl'),
+                    get_string('startpayment:failed:message', 'paygw_paynl'),
+                    get_string('startpayment:failed:btncancel', 'paygw_paynl')
+                );
             }
         }).fail(Notification.exception);
-    };
-    $(selector).on('click', doCreateTransaction);
+    });
 };

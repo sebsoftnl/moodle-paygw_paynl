@@ -53,6 +53,8 @@ $string['err:validatetransaction:component'] = 'Transaction invalid: component m
 $string['err:validatetransaction:paymentarea'] = 'Transaction invalid: paymentarea mismatch';
 $string['err:validatetransaction:itemid'] = 'Transaction invalid: itemid mismatch';
 $string['err:validatetransaction:userid'] = 'Transaction invalid: user mismatch';
+$string['err:nopaymentmethods'] = 'You don\'t have any payment methods enabled for PAY. It\'s also possible, if you do have payment methods enabled for PAY.,
+that these are not available for the current country.';
 $string['paymentalreadypaid'] = 'Payment already performed';
 $string['paymentsuccessful'] = 'Your payment was successful';
 $string['paymentcancelled'] = 'Your payment was cancelled';
@@ -61,6 +63,8 @@ $string['cannotprocessstatus'] = 'Your payment has a status we cannot (yet) proc
 $string['transactionrecordnotfound'] = 'Reference to this payment cannot be found in our system.';
 $string['payment:returnpage'] = 'Processing payment status.';
 $string['task:processopenorders'] = 'Process open orders.';
+$string['startpayment:failed:title'] = 'Payment could not be started.';
+$string['startpayment:failed:btncancel'] = 'Close';
 
 $string['privacy:metadata:paygw_paynl'] = 'The PAY. payment plugin stores external transactionid\'s and payment references for the Moodle user needed to identity and synchronize payments.';
 $string['privacy:metadata:paygw_paynl:userid'] = 'User ID';

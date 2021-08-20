@@ -36,8 +36,8 @@ require_once(__DIR__ . '/thirdparty/paynl-sdk/autoload.php');
 
 require_login();
 
-$component = required_param('component', PARAM_ALPHANUMEXT);
-$paymentarea = required_param('paymentarea', PARAM_ALPHANUMEXT);
+$component = required_param('component', PARAM_COMPONENT);
+$paymentarea = required_param('paymentarea', PARAM_AREA);
 $itemid = required_param('itemid', PARAM_INT);
 // Params below added by Pay.
 $orderid = required_param('orderId', PARAM_ALPHANUMEXT);

@@ -2,3 +2,17 @@
     height: 40px;
     width: auto;
 }
+.paygw_paynl-payment-methods .paymentmethod input[type="radio"] {
+    display: none;
+}
+.paygw_paynl-payment-methods .paymentmethod input[type="radio"] + label {
+    cursor: pointer;
+    padding: 1em;
+    width: 100%;
+    border-radius: 10px;
+    border: 0 px none;
+}
+.paygw_paynl-payment-methods .paymentmethod input[type="radio"]:checked + label {
+    background-color: #ddd;
+    border: 1px solid #080;
+}

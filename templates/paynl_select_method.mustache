@@ -36,24 +36,8 @@
     <div class="paymentmethod" data-method-has-banks="{{hasbanks}}">
         <input type="radio" id="method_{{id}}" name="method" value="{{id}}" data-paynl-method="{{id}}"/>
         <label for="method_{{id}}">
-            <img src="{{imagebase}}{{brand.image}}" class="brandimage"/> {{{brand.public_description}}}
+            <img src="{{imagebase}}{{brand.image}}" class="brandimage" alt=""/> {{{brand.public_description}}}
         </label>
     </div>
 {{/methods}}
 </div>
-<style>
-.paymentmethod input[type="radio"] {
-    display: none;
-}
-.paymentmethod input[type="radio"] + label {
-    cursor: pointer;
-    padding: 1em;
-    width: 100%;
-    border-radius: 10px;
-    border: 0 px none;
-}
-.paymentmethod input[type="radio"]:checked + label {
-    background-color: #ddd;
-    border: 1px solid #080;
-}
-</style>

@@ -36,8 +36,8 @@ require_once(__DIR__ . '/../../../config.php');
 require_once(__DIR__ . '/thirdparty/paynl-sdk/autoload.php');
 
 try {
-    $component = required_param('component', PARAM_ALPHANUMEXT);
-    $paymentarea = required_param('paymentarea', PARAM_ALPHANUMEXT);
+    $component = required_param('component', PARAM_COMPONENT);
+    $paymentarea = required_param('paymentarea', PARAM_AREA);
     $itemid = required_param('itemid', PARAM_INT);
 
     $config = (object) helper::get_gateway_configuration($component, $paymentarea, $itemid, 'paynl');

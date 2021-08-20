@@ -14,9 +14,9 @@
         <FIELD NAME="itemid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="transactionid" TYPE="char" LENGTH="255" NOTNULL="true" COMMENT="The ID of the transaction in PayNL" SEQUENCE="false"/>
         <FIELD NAME="paymentreference" TYPE="char" LENGTH="100" NOTNULL="true" default="m_init" COMMENT="Payment reference in PayNL" SEQUENCE="false"/>
-        <FIELD NAME="status" TYPE="char" LENGTH="100" NOTNULL="true" default="m_init" COMMENT="Payment status at PayNL" SEQUENCE="false"/>
-        <FIELD NAME="statuscode" TYPE="int" LENGTH="4" NOTNULL="true" default="0" COMMENT="Payment status code at PayNL" SEQUENCE="false"/>
-        <FIELD NAME="testmode" TYPE="int" LENGTH="1" NOTNULL="true" default="0" COMMENT="Gateway mode" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="char" LENGTH="100" NOTNULL="true" DEFAULT="m_init" COMMENT="Payment status at PayNL" SEQUENCE="false"/>
+        <FIELD NAME="statuscode" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" COMMENT="Payment status code at PayNL" SEQUENCE="false"/>
+        <FIELD NAME="testmode" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" COMMENT="Gateway mode" SEQUENCE="false"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
       </FIELDS>

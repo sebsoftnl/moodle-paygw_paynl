@@ -34,9 +34,4 @@ defined('MOODLE_INTERNAL') || die();
  */
 function xmldb_paygw_paynl_install() {
     global $CFG;
-
-    // Enable the Paypal payment gateway on installation. It still needs to be configured and enabled for accounts.
-    $order = (!empty($CFG->paygw_plugins_sortorder)) ? explode(',', $CFG->paygw_plugins_sortorder) : [];
-    set_config('paygw_plugins_sortorder', join(',', array_merge($order, ['paynl'])));
-
 }
