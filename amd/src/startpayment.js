@@ -43,7 +43,7 @@ function getSelectedPaymentMethod() {
  * Create payment in the backend and redirect.
  *
  * @param {String} selector
- * @returns {void}
+ * @returns {Promise}
  */
 export const startPayment = (selector) => {
     document.querySelector(selector).addEventListener('click', e => {
@@ -67,6 +67,7 @@ export const startPayment = (selector) => {
                     get_string('startpayment:failed:btncancel', 'paygw_paynl')
                 );
             }
+            return Promise.resolve();
         }).fail(Notification.exception);
     });
 };

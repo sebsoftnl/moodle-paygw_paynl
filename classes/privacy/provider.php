@@ -103,6 +103,7 @@ class provider implements \core_privacy\local\metadata\provider,
         // I know we should really provide the proper contexts.
         // This can be so messy, we just return system context. Payments should really be system context anyway.
         $contextlist->add_system_context();
+        return $contextlist;
     }
 
     /**
