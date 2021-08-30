@@ -1,6 +1,12 @@
+Version 1.0.3 (build 2021081603)
+
+** Added missing/newly released payment profile brand images (see https://github.com/paynl/payment-images).
+
+-----
 Version 1.0.2 (build 2021081602)
 
 ** Fix return of contextlist in provider::get_contexts_for_userid (was mentioned for Mollie implementation).
+** then() should return a value or throw (startpayment.js).
 
 -----
 Version 1.0.1 (build 2021080100)
