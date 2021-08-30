@@ -1,3 +1,9 @@
+Version 1.0.4 (build 2021081604)
+
+** Upgrade to v1.6.2 of the PAY SDK.
+** Small code fix.
+
+-----
 Version 1.0.3 (build 2021081603)
 
 ** Added missing/newly released payment profile brand images (see https://github.com/paynl/payment-images).

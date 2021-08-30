@@ -70,6 +70,6 @@ if (count($paymentmethods) === 0) {
         'methods' => array_values($paymentmethods)
     ];
     echo $OUTPUT->render_from_template('paygw_paynl/paynl_select_method', $wcontext);
-    echo $OUTPUT->render_from_template('paygw_mollie/paynl_startpayment', (object)$params);
+    echo $OUTPUT->render_from_template('paygw_paynl/paynl_startpayment', (object)$params);
 }
 echo $OUTPUT->footer();

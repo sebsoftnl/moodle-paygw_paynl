@@ -68,7 +68,7 @@ $string['startpayment:failed:btncancel'] = 'Close';
 
 $string['privacy:metadata:paygw_paynl'] = 'The PAY. payment plugin stores external transactionid\'s and payment references for the Moodle user needed to identity and synchronize payments.';
 $string['privacy:metadata:paygw_paynl:userid'] = 'User ID';
-$string['privacy:metadata:paygw_mollie:paymentid'] = 'Payment ID (internal)';
+$string['privacy:metadata:paygw_paynl:paymentid'] = 'Payment ID (internal)';
 $string['privacy:metadata:paygw_paynl:component'] = 'Payment component';
 $string['privacy:metadata:paygw_paynl:paymentarea'] = 'Payment area';
 $string['privacy:metadata:paygw_paynl:itemid'] = 'Payment item ID';

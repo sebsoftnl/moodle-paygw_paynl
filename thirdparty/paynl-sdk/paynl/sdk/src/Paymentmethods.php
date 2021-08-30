@@ -20,10 +20,10 @@ class Paymentmethods
      */
     private static function reorderOutput($input)
     {
-        $paymentMethods = array();
+        $paymentMethods = array();     
 
-        foreach ((array)$input['countryOptionList'] as $country) {
-
+        foreach ((array)$input['countryOptionList'] as $country) {       
+            
             foreach ((array)$country['paymentOptionList'] as $paymentOption) {
                 if (isset($paymentMethods[$paymentOption['id']])) {
                     $paymentMethods[$paymentOption['id']]['countries'][] = $country['id'];
@@ -33,7 +33,7 @@ class Paymentmethods
                 $banks = array();
                 if (!empty($paymentOption['paymentOptionSubList'])) {
                     foreach ((array)$paymentOption['paymentOptionSubList'] as $optionSub) {
-
+                    
                         $image = '';
                         if (isset($optionSub['image'])) {
                             $image = $optionSub['image'];
@@ -45,7 +45,7 @@ class Paymentmethods
                           'image' =>  $optionSub['image'],
                         );
                     }
-                }
+                }         
 
                 $paymentMethods[$paymentOption['id']] = array(
                   'id' => $paymentOption['id'],
@@ -56,7 +56,7 @@ class Paymentmethods
                   'countries' => array($country['id']),
                   'banks' => $banks,
                   'brand' => $paymentOption['brand'],
-
+                  
                 );
             }
         }
@@ -93,8 +93,8 @@ class Paymentmethods
     public static function getList(array $options = array())
     {
         $api = new Api\GetService();
-        $result = $api->doRequest();
-
+        $result = $api->doRequest();       
+       
         $paymentMethods = self::reorderOutput($result);
  
 

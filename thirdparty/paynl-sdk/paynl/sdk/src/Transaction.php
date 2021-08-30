@@ -37,7 +37,7 @@ class Transaction
     /** @var string Payment fees */
     const PRODUCT_TYPE_PAYMENT = 'PAYMENT';
     /** @var string An extra order line added by PAY. if the total amount does not match the total of the product lines */
-    const PRODUCT_TYPE_ROUNDING = 'ROUNDING';   
+    const PRODUCT_TYPE_ROUNDING = 'ROUNDING';
     /** @var string Costs for shipment */
     const PRODUCT_TYPE_SHIPPING = 'SHIPPING';
     /** @var string Ticket for events, festivals or theaters */
@@ -48,7 +48,6 @@ class Transaction
     const PRODUCT_TYPE_VIRTUAL = 'VIRTUAL';
     /** @var string Voucher for a free article or discount for next order */
     const PRODUCT_TYPE_VOUCHER = 'VOUCHER';
-
 
     /**
      * Start a new transaction
@@ -223,6 +222,9 @@ class Transaction
             if (isset($options['invoiceAddress']['gender'])) {
                 $invoiceAddress['gender'] = $options['invoiceAddress']['gender'];
             }
+            if (isset($options['invoiceAddress']['regionCode'])) {
+                $invoiceAddress['regionCode'] = $options['invoiceAddress']['regionCode'];
+            }
 
             $enduser['invoiceAddress'] = $invoiceAddress;
         }
@@ -318,26 +320,26 @@ class Transaction
      * @return Result\Details
      * @throws Error\Api
      * @throws Error\Error
-     * @throws Error\Required\ApiToken    
+     * @throws Error\Required\ApiToken
      */
     public static function details(
         $transactionId,
         $entranceCode = null
     )
     {
-        
+
         $api = new Api\Details();
-        
+
         $api->setTransactionId($transactionId);
-      
+
         if ($entranceCode !== null) {
             $api->setEntranceCode($entranceCode);
-        }        
-        $result = $api->doRequest();       
-        
+        }
+        $result = $api->doRequest();
+
         return new Result\Details($result);
     }
-    
+
     /**
      * Get the transaction in an exchange script.
      * This will work for all kinds of exchange calls (GET, POST AND POST_XML)
@@ -425,7 +427,7 @@ class Transaction
      * @return Result\Cancel
      * @throws Error\Api
      * @throws Error\Error
-     * @throws Error\Required\ApiToken    
+     * @throws Error\Required\ApiToken
      */
     public static function cancel(
         $transactionId,
@@ -434,11 +436,11 @@ class Transaction
     {
         $api = new Api\Cancel();
         $api->setTransactionId($transactionId);
-      
+
         if ($entranceCode !== null) {
             $api->setEntranceCode($entranceCode);
         }
-      
+
         $result = $api->doRequest();
 
         return new Result\Cancel($result);
@@ -510,13 +512,14 @@ class Transaction
      * @param string $transactionId
      * @param string|null $amount
      * @param string|null $tracktrace
+     * @param array|null $products
      * @return bool
      * @throws Error\Api
      * @throws Error\Error
      * @throws Error\Required\ApiToken
      * @throws Error\Required\ServiceId
      */
-    public static function capture($transactionId, $amount = null , $tracktrace = null )
+    public static function capture($transactionId, $amount = null , $tracktrace = null, $products = null)
     {
         $api = new Api\Capture();
 
@@ -526,6 +529,10 @@ class Transaction
 
         if (isset($tracktrace)) {
             $api->setTracktrace($tracktrace);
+        }
+
+        if (!empty($products)) {
+            $api->setProducts($products);
         }
 
         $api->setTransactionId($transactionId);
